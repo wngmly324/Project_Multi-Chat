@@ -97,7 +97,7 @@ public class MultiChatServer {
 						status = false;
 					}
 					// 로그인 메시지인 경우
-					else if(m.getType.equlas("login")) {
+					else if(m.getType().equals("login")) {
 						msgSendAll(gson.toJson(new Message(m.getId(), "", "님이 로그인했습니다.", "server")));
 					}
 					// 이반 메시지인 경우
