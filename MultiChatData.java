@@ -10,7 +10,7 @@ public class MultiChatData {
 		this.msgOut = (JTextArea)comp;
 	}
 	
-	public void regreshData(String msg) {
+	public void refreshData(String msg) {
 		// JTextArea에 수시된 메시지 추가
 		msgOut.append(msg);
 	}

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Logger;
+import static java.util.logging.Level.*;
 
 import com.google.gson.Gson;
 
@@ -103,7 +104,7 @@ public class MultiChatController  implements Runnable{
 			
 			// 서버에 로그인 메시지 전달
 			m = new Message(v.id, "", "", "login");
-			outMsg.println(gson.toJson(m);
+			outMsg.println(gson.toJson(m));
 			
 			// 메시지 수신을 위한 스레드 생성
 			thread = new Thread(this);

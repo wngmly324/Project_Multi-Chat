@@ -70,16 +70,16 @@ public class MultiChatUI extends JFrame {
 		loginPanel.add(loginButton, BorderLayout.EAST);
 		
 		// 로그아웃 패널 구성
-		logoutPanel = new JPanel();
-		
-		// 로그아웃 패널 레이아웃 설정
-		logoutPanel.setLayout(new BorderLayout());
-		outLabel = new JLabel();
-		logoutButton = new JButton("로그아웃");
-		
-		// 로그아웃 패널에 위젯 구성
-		loginPanel.add(outLabel, BorderLayout.CENTER);
-		loginPanel.add(logoutButton, BorderLayout.EAST);
+        logoutPanel = new JPanel();
+
+        // 로그아웃 패널 레이아웃 설정
+        logoutPanel.setLayout(new BorderLayout());
+        outLabel = new JLabel();
+        logoutButton = new JButton("로그아웃");
+
+        // 로그아웃 패널에 위젯 구성
+        logoutPanel.add(outLabel, BorderLayout.CENTER);
+        logoutPanel.add(logoutButton, BorderLayout.EAST);
 		
 		// 메시지 입력 패널 구성
 		msgPanel = new JPanel();
