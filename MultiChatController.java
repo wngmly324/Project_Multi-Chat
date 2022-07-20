@@ -1,11 +1,16 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Logger;
+
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import static java.util.logging.Level.*;
 
 import com.google.gson.Gson;
@@ -62,9 +67,12 @@ public class MultiChatController  implements Runnable{
 					System.exit(0);
 				} else if(obj == v.loginButton) {
 					v.id = v.idInput.getText();
-					v.outLabel.setText(" 대화명 : " + v.id);
+					v.outLabel.setText(" ID : " + v.id);
 					v.cardLayout.show(v.tab, "logout");
 					connectServer();
+				} else if(obj == v.soundButton) {
+					File Clap = new File("power up.wav");
+					PlaySound(Clap);
 				} else if(obj == v.logoutButton) {
 					// 로그아웃 메시지 전송
 					outMsg.println(gson.toJson(new Message(v.id, "", "","logout")));
@@ -89,6 +97,18 @@ public class MultiChatController  implements Runnable{
 			}
 			
 		});
+	}
+	
+	public static void PlaySound(File sound) {
+		try {
+			Clip clip = AudioSystem.getClip();
+			clip.open(AudioSystem.getAudioInputStream(sound));
+			clip.start();
+			
+			Thread.sleep(clip.getMicrosecondLength()/1000);
+		} catch(Exception x) {
+			
+		}
 	}
 	
 	// 서버 접속을 위한 메서드

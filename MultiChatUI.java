@@ -47,6 +47,9 @@ public class MultiChatUI extends JFrame {
 	// 로그인 아이디 저장 필드
 	protected String id;
 	
+	// 사운드 버튼
+	protected JButton soundButton;
+	
 	// 생성자
 	public MultiChatUI() {
 		
@@ -133,6 +136,7 @@ public class MultiChatUI extends JFrame {
 		logoutButton.addActionListener(listener);
 		exitButton.addActionListener(listener);
 		msgInput.addActionListener(listener);
+		soundButton.addActionListener(listener);
 	}
 
 }
