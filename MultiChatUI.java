@@ -54,7 +54,7 @@ public class MultiChatUI extends JFrame {
 	public MultiChatUI() {
 		
 		// 메인 프레임 구성
-		super("::멀티챗::");
+		super("::MultiChat::");
 		
 		// 로그인 패널 화면 구성
 		loginPanel = new JPanel();
@@ -64,10 +64,10 @@ public class MultiChatUI extends JFrame {
 		
 		// 로그인 입력필드/버튼 생성
 		idInput = new JTextField(15);
-		loginButton = new JButton("로그인");
+		loginButton = new JButton("Login");
 		
 		// 로그인 패널에 위젯 구성
-		inLabel = new JLabel("대화명 ");
+		inLabel = new JLabel("NickName ");
 		loginPanel.add(inLabel, BorderLayout.WEST);
 		loginPanel.add(idInput, BorderLayout.CENTER);
 		loginPanel.add(loginButton, BorderLayout.EAST);
@@ -78,11 +78,13 @@ public class MultiChatUI extends JFrame {
         // 로그아웃 패널 레이아웃 설정
         logoutPanel.setLayout(new BorderLayout());
         outLabel = new JLabel();
-        logoutButton = new JButton("로그아웃");
+        logoutButton = new JButton("Logout");
+        soundButton= new JButton("Sound");
 
         // 로그아웃 패널에 위젯 구성
         logoutPanel.add(outLabel, BorderLayout.CENTER);
         logoutPanel.add(logoutButton, BorderLayout.EAST);
+        logoutPanel.add(logoutButton, BorderLayout.WEST);
 		
 		// 메시지 입력 패널 구성
 		msgPanel = new JPanel();
@@ -91,7 +93,7 @@ public class MultiChatUI extends JFrame {
 		msgInput = new JTextField(30);
 		
 		// 메시지 입력 패널에 위젯 구성
-		exitButton = new JButton("종료");
+		exitButton = new JButton("Exit");
 		msgPanel.add(msgInput, BorderLayout.CENTER);
 		msgPanel.add(exitButton, BorderLayout.EAST);
 		

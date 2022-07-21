@@ -42,7 +42,7 @@ public class MultiChatServer {
 			}
 			
 		} catch (Exception e) {
-			logger.info("[MultiChatServer]start() Exception 발생!!");
+			logger.info("[MultiChatServer]start() Exception Occurred!!");
 			e.printStackTrace();
 		}
 	}
@@ -107,11 +107,11 @@ public class MultiChatServer {
 				}
 				// 루프를 벗어나면 클라이언트 연결 종료이므로 스레드 인터럽트
 				this.interrupt();
-				logger.info(this.getName() + "종료됨!!");
+				logger.info(this.getName() + "ended!!");
 				
 			} catch (Exception e) {
 				chatThreads.remove(this);
-				logger.info("[ChatThread]run() IOException 발생!!");
+				logger.info("[ChatThread]run() IOException Occurred!!");
 				e.printStackTrace();
 			}
 		}

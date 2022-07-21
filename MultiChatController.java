@@ -70,9 +70,6 @@ public class MultiChatController  implements Runnable{
 					v.outLabel.setText(" ID : " + v.id);
 					v.cardLayout.show(v.tab, "logout");
 					connectServer();
-				} else if(obj == v.soundButton) {
-					File Clap = new File("power up.wav");
-					PlaySound(Clap);
 				} else if(obj == v.logoutButton) {
 					// 로그아웃 메시지 전송
 					outMsg.println(gson.toJson(new Message(v.id, "", "","logout")));
@@ -93,6 +90,9 @@ public class MultiChatController  implements Runnable{
 					outMsg.println(gson.toJson(new Message(v.id, "", v.msgInput.getText(), "msg")));
 					// 입력창 클리어
 					v.msgInput.setText("");
+				} else if(obj == v.soundButton) {
+					File Clap = new File("power up.wav");
+					PlaySound(Clap);
 				}
 			}
 			
@@ -116,7 +116,7 @@ public class MultiChatController  implements Runnable{
 		try {
 			// 소켓 생성
 			socket = new Socket(ip, 8888);
-			logger.log(INFO, "[Client]Server 연결 성공!!");
+			logger.log(INFO, "[Client]Server Connection Successful!!");
 			
 			// 입출력 스트림 생성
 			inMsg = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -130,7 +130,7 @@ public class MultiChatController  implements Runnable{
 			thread = new Thread(this);
 			thread.start();
 		} catch(Exception e) {
-			logger.log(WARNING, "[MultiChatUI]connectServer() Exception 발생!!");
+			logger.log(WARNING, "[MultiChatUI]connectServer() Exception Occured!!");
 			e.printStackTrace();
 		}
 	}
@@ -154,13 +154,13 @@ public class MultiChatController  implements Runnable{
 				v.msgOut.setCaretPosition(v.msgOut.getDocument().getLength());
 				
 			} catch(Exception e) {
-				logger.log(WARNING, "[MultiChatUI]메시지 스트림 종료!!");
+				logger.log(WARNING, "[MultiChatUI]End Message Stream!!");
 			}
 		}
-		logger.info("[MultiChatUI]" + thread.getName() + "메시지 수신 스레드 종료됨!!");
+		logger.info("[MultiChatUI]" + thread.getName() + "Exit Message Receiving Thread!!");
 	}
 
-	// 프로그래미 시작을 위한 메인 메서드
+	// 프로그램 시작을 위한 메인 메서드
 	public static void main(String[] args) {
 		MultiChatController app = new MultiChatController(new MultiChatData(), new MultiChatUI());
 		app.appMain();
